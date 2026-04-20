@@ -12,9 +12,9 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #fafafa;
+  background-color: #FFFFFF;
   color: #1a1a1a;
-  line-height: 1.6;
+  line-height: 1.5;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
@@ -23,52 +23,60 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== MAIN CONTAINER ===== */
+/* ===== PAGE WRAPPER ===== */
 .page-wrapper {
   width: 100%;
-  max-width: 520px;
-  padding: 0 20px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
 }
 
-/* ===== HEADLINE ===== */
-.headline {
-  margin-top: clamp(32px, 8vh, 56px);
-  margin-bottom: clamp(24px, 5vh, 40px);
+/* ===================================================== */
+/* SECTION 1: HERO / HEADLINE                            */
+/* ===================================================== */
+.hero {
+  width: 100%;
+  padding: 40px 20px 30px;
   text-align: center;
+  background: #F9F9F9;
 }
 
-.headline h1 {
-  font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+.hero h1 {
+  font-size: 32px;
   font-weight: 700;
-  color: #111;
+  color: #1A2332;
+  line-height: 1.2;
   letter-spacing: -0.02em;
-  line-height: 1.25;
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.15s forwards;
+  margin-bottom: 16px;
 }
 
-/* ===== VIDEO CONTAINER ===== */
+.sub-headline {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4A5568;
+  line-height: 1.5;
+}
+
+/* ===================================================== */
+/* SECTION 2: VIDEO PLAYER                               */
+/* ===================================================== */
 .video-container {
   width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  margin-bottom: clamp(24px, 5vh, 40px);
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.35s forwards;
-  position: relative;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
-/* 9:16 aspect ratio wrapper (mobile-first) */
 .video-aspect {
   position: relative;
   width: 100%;
-  padding-top: 177.78%; /* 16/9 * 100 for 9:16 */
+  padding-top: 100%; /* 1:1 square ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .video-aspect video {
@@ -82,7 +90,6 @@ body {
   z-index: 1;
 }
 
-/* Placeholder state — sits below video when video is present */
 .video-placeholder {
   position: absolute;
   top: 0;
@@ -93,10 +100,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #111 0%, #1a1a1a 100%);
+  background: linear-gradient(145deg, #111, #1a1a1a);
   color: #fff;
   gap: 14px;
-  cursor: default;
   z-index: 0;
 }
 
@@ -125,102 +131,330 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ===== SHORT TEXT ===== */
-.short-text {
+/* ===================================================== */
+/* SECTION 3: SOCIAL PROOF                               */
+/* ===================================================== */
+.social-proof {
+  width: 100%;
+  padding: 40px 20px;
+  background: #FAFAFA;
   text-align: center;
-  margin-bottom: clamp(24px, 5vh, 36px);
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.55s forwards;
 }
 
-.short-text p {
-  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 8px;
-  font-weight: 400;
-}
-
-.short-text p:last-child {
-  margin-bottom: 0;
-}
-
-.short-text .cta-line {
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-top: 16px;
-  font-size: clamp(1rem, 3.8vw, 1.15rem);
-}
-
-/* ===== CTA BUTTON ===== */
-.cta-wrapper {
-  width: 100%;
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.7s forwards;
-}
-
-.cta-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 18px 32px;
-  background: #25D366;
-  color: #fff;
-  font-size: clamp(1.05rem, 4vw, 1.2rem);
+.social-proof h2 {
+  font-size: 22px;
   font-weight: 700;
-  font-family: inherit;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
-  -webkit-tap-highlight-color: transparent;
-  letter-spacing: 0.01em;
+  color: #1A2332;
+  margin-bottom: 28px;
 }
 
-.cta-button:hover {
-  background: #22c35e;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+.team-list {
+  list-style: none;
+  margin-bottom: 28px;
 }
 
-.cta-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.25);
+.team-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #EEEEEE;
 }
 
-.cta-button svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+.team-list li:last-child {
+  border-bottom: none;
+}
+
+.team-list li::before {
+  content: "✓";
+  display: block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  background: #FF6B35;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
   flex-shrink: 0;
 }
 
-/* Subtle pulse glow on the WRAPPER (not the button itself, to avoid animation conflict) */
-.cta-wrapper {
-  animation: fadeUp 0.7s ease-out 0.7s forwards, softPulse 2.8s ease-in-out 1.5s infinite;
+.team-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A2332;
 }
 
-/* ===== URGENCY LINE ===== */
-.urgency {
+.team-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  margin-top: 2px;
+}
+
+.supporting-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===================================================== */
+/* SECTION 4: BENEFITS                                   */
+/* ===================================================== */
+.benefits {
+  width: 100%;
+  padding: 40px 20px;
+  background: #FFFFFF;
+}
+
+.benefits h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1A2332;
   text-align: center;
-  padding: 8px 0 clamp(40px, 8vh, 60px);
-  opacity: 0;
-  animation: fadeUp 0.7s ease-out 0.85s forwards;
+  margin-bottom: 28px;
 }
 
-.urgency p {
-  font-size: clamp(0.8rem, 3vw, 0.9rem);
-  color: #777;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 28px;
 }
 
-/* ===== STICKY MOBILE BUTTON ===== */
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.benefit-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #10B981;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefit-item strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A2332;
+  margin-bottom: 4px;
+}
+
+.benefit-item p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.5;
+}
+
+.supporting-text-italic {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ===================================================== */
+/* SECTION 5: EVENT DETAILS + SCARCITY                   */
+/* ===================================================== */
+.event-details {
+  width: 100%;
+  padding: 40px 20px;
+  background: #F0F7FB;
+}
+
+.event-box {
+  border: 2px solid #FF6B35;
+  border-radius: 8px;
+  padding: 30px 20px;
+  background: #FFF5F0;
+}
+
+.event-warning {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A2332;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.event-info {
+  margin-bottom: 20px;
+}
+
+.event-info p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+}
+
+.event-info strong {
+  color: #1A2332;
+}
+
+.capacity-line {
+  font-size: 16px;
+  font-weight: 700;
+  color: #E53E3E;
+  margin-bottom: 6px;
+}
+
+.capacity-reason {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.status-line {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FF6B35;
+}
+
+/* ===================================================== */
+/* SECTION 6: Q&A / OBJECTION REMOVAL                    */
+/* ===================================================== */
+.qa-section {
+  width: 100%;
+  padding: 40px 20px;
+  background: #FFFFFF;
+}
+
+.qa-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A2332;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qa-item {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.qa-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.qa-question {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A2332;
+  margin-bottom: 8px;
+}
+
+.qa-answer {
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===================================================== */
+/* SECTION 7: PRIMARY CTA                                */
+/* ===================================================== */
+.primary-cta {
+  width: 100%;
+  padding: 50px 20px 40px;
+  background: #FAFAFA;
+  text-align: center;
+}
+
+.cta-button {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 56px;
+  line-height: 56px;
+  background: #FF6B35;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+.cta-button:active {
+  opacity: 0.85;
+}
+
+.cta-subtext {
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.cta-urgency {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FF6B35;
+  margin-top: 20px;
+}
+
+/* ===================================================== */
+/* SECTION 8: FOOTER                                     */
+/* ===================================================== */
+.site-footer {
+  width: 100%;
+  padding: 40px 20px;
+  background: #2D3748;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 13px;
+  color: #CCC;
+  line-height: 1.7;
+}
+
+.site-footer p:first-child {
+  color: #FFFFFF;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ===================================================== */
+/* STICKY MOBILE CTA                                     */
+/* ===================================================== */
 .sticky-cta {
   display: none;
 }
@@ -235,7 +469,7 @@ body {
     z-index: 100;
     padding: 12px 16px;
     padding-bottom: max(12px, env(safe-area-inset-bottom));
-    background: linear-gradient(to top, #fafafa 80%, rgba(250, 250, 250, 0));
+    background: linear-gradient(to top, #FAFAFA 80%, rgba(250, 250, 250, 0));
     opacity: 0;
     transform: translateY(100%);
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -249,44 +483,58 @@ body {
   }
 
   .sticky-cta .cta-button {
-    box-shadow: 0 -2px 20px rgba(37, 211, 102, 0.2), 0 4px 18px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 -2px 20px rgba(255, 107, 53, 0.2), 0 4px 18px rgba(255, 107, 53, 0.3);
   }
 
-  /* Add bottom padding to body so content isn't hidden behind sticky */
   body {
     padding-bottom: 80px;
   }
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes softPulse {
-  0%, 100% {
-    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
-  }
-  50% {
-    box-shadow: 0 4px 28px rgba(37, 211, 102, 0.5);
-  }
-}
-
-/* ===== DESKTOP ADJUSTMENTS ===== */
+/* ===================================================== */
+/* DESKTOP ADJUSTMENTS                                   */
+/* ===================================================== */
 @media (min-width: 641px) {
-  .page-wrapper {
-    padding: 0 24px;
+  .hero {
+    padding: 50px 40px 35px;
   }
 
-  /* On desktop, switch to 1:1 aspect */
-  .video-aspect {
-    padding-top: 100%;
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .sub-headline {
+    font-size: 18px;
+  }
+
+  .social-proof,
+  .benefits,
+  .event-details,
+  .qa-section,
+  .primary-cta {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .video-container {
+    padding: 0 40px;
+  }
+
+  .site-footer {
+    padding: 40px 40px;
+  }
+}
+
+/* ===================================================== */
+/* MOBILE FINE-TUNING                                    */
+/* ===================================================== */
+@media (max-width: 375px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 0 20px;
   }
 }
