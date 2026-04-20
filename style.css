@@ -150,34 +150,37 @@ body {
 
 .team-list {
   list-style: none;
-  margin-bottom: 28px;
+  margin: 0 auto 28px;
+  max-width: 400px;
 }
 
 .team-list li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 12px 0;
+  justify-content: flex-start;
+  padding: 16px 0;
   border-bottom: 1px solid #EEEEEE;
+  text-align: left;
 }
 
 .team-list li:last-child {
   border-bottom: none;
 }
 
-.team-list li::before {
-  content: "✓";
-  display: block;
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
+.speaker-avatar {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: #FF6B35;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 6px;
+  background-color: #E2E8F0;
+  border: 1px solid #CBD5E1;
   flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.speaker-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .team-name {
