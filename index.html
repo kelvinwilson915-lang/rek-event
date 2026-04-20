@@ -8,6 +8,23 @@
   <meta name="theme-color" content="#fafafa">
   <link rel="icon" href="data:,">
 
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1346981953906904');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1346981953906904&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
   <!-- INLINE CRITICAL CSS — zero render-blocking requests -->
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -143,6 +160,15 @@
         else s.classList.add('visible');
       },{threshold:.3}).observe(m);
     })();
+
+    // Meta Pixel — fire Lead event on CTA button click
+    document.querySelectorAll('.cta-button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(typeof fbq === 'function'){
+          fbq('track', 'Lead');
+        }
+      });
+    });
   </script>
 </body>
 </html>
