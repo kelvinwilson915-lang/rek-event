@@ -176,6 +176,7 @@ body {
   border: 1px solid #CBD5E1;
   flex-shrink: 0;
   margin-right: 16px;
+  object-fit: cover; /* Ensures image isn't stretched */
 }
 
 .speaker-info {
